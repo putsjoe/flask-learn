@@ -1,4 +1,8 @@
+
 from flask import Flask, url_for
+from flask import render_template, request
+from werkzeug.utils import secure_filename
+
 app = Flask(__name__)
 
 # Start this script, in directory with flak.py in ofcourse: 
@@ -43,8 +47,6 @@ def arguments():
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
-    from flask import render_template, request
-    from werkzeug.utils import secure_filename
     if request.method == 'POST':
         f = request.files['the_file']
         f.save('/Users/joearthur/dev/flask/upload/{}'.format(secure_filename(f.filename)))
