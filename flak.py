@@ -1,7 +1,7 @@
 from flask import Flask, url_for
 app = Flask(__name__)
 
-# Valid to start this script: 
+# Start this script, in directory with flak.py in ofcourse: 
 # FLASK_DEBUG=1 FLASK_APP=flak.py flask run
 
 @app.route('/')
@@ -35,4 +35,19 @@ def template(name):
     # Flask will by default look in the templates directory.
     return render_template('hello.html', name=name)
 
+@app.route('/args/')
+def arguments():
+    from flask import request
+    # Add ?name={yourname} arguments to this url
+    return 'Hi {}'.format(request.args.get('name', 'Nameless'))
 
+@app.route('/upload', methods=['GET', 'POST'])
+def upload_file():
+    from flask import render_template, request
+    from werkzeug.utils import secure_filename
+    if request.method == 'POST':
+        f = request.files['the_file']
+        f.save('/Users/joearthur/dev/flask/upload/{}'.format(secure_filename(f.filename)))
+        return render_template('upload.html', done=True)
+    
+    return render_template('upload.html')
