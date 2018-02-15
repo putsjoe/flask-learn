@@ -53,3 +53,8 @@ def upload_file():
         return render_template('upload.html', done=True)
     
     return render_template('upload.html')
+
+@app.route('/grid')
+def grid():
+    # Not relevant to flask, grid css testing.
+    return render_template('grid.html')

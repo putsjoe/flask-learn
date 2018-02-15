@@ -1,0 +1,79 @@
+<html>
+    <body>
+        <div class="wrapper1">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+
+        <div class="wrapper2">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+        
+        <div class="wrapper3">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+        
+        <div class="grid">
+                <div class="grid-itema">1</div>
+                <div class="grid-itemb">2</div>
+                <div class="grid-itemc">3</div>
+                <div class="grid-itemd">4</div>
+                <div class="grid-iteme">5</div>
+        </div>
+
+    </body>
+    
+    <style>
+        div {
+            border: black solid 1px;
+        }
+        .wrapper1 {
+            display: grid;
+            margin-bottom: 30px;
+        }
+        .wrapper2 {
+            display: grid;
+            grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 50px 50px;
+            margin-bottom: 30px;
+        }
+
+        .wrapper3 {
+            display: grid;
+            grid-template-columns: 200px 50px 100px;
+            grid-template-rows: 100px 30px;
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 12em 1fr 15em;
+            grid-template-rows: 10em 20em 1fr 10em;
+            grid-template-areas: 'a a b'
+                                'c d d'
+                                'c d d'
+                                'e e e';
+        }
+        .grid-itema { grid-area: a; }
+        .grid-itemb { grid-area: b; }
+        .grid-itemc { grid-area: c; }
+        .grid-itemd { grid-area: d; }
+        .grid-iteme { grid-area: e; }
+
+    </style>
+
+</html>
